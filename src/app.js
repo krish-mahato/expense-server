@@ -39,9 +39,12 @@ app.use((req, res, next) => {
 
 // Error handler middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ msg: 'Something went wrong!', error: err.message });
-});
+    console.error('Error details:', err); // Log error details
+    res.status(err.status || 500).json({
+      message: err.message || 'Internal Server Error',
+      error: process.env.NODE_ENV === 'development' ? err : {}, // Show error in development mode
+    });
+  });
 
 module.exports = app;
 
