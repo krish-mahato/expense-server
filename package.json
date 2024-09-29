@@ -16,6 +16,7 @@
   "author": "krishnendu",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
